@@ -47,31 +47,32 @@ def misra_gries(stream, k):
     return sorted_dict
 
 
-teststream1 = [1, 4, 5, 4, 4, 5, 4, 4]
-k1 = 2
-print(f"TEST 1: Numbers that occured n/k or more times are: {misra_gries(teststream1, k1)}")
-# result is: {4: 5}
+if __name__ == '__main__':
+    teststream1 = [1, 4, 5, 4, 4, 5, 4, 4]
+    k1 = 2
+    print(f"TEST 1: Numbers that occured n/k or more times are: {misra_gries(teststream1, k1)}")
+    # result is: {4: 5}
 
-teststream2 = [1, 2, 3, 3, 3, 4, 5, 6]
-k2 = 2
-# n/k equals 4, and the most common element is 3 (that occured 3 times)...
-print(f"TEST 2: Numbers that occured n/k or more times are: {misra_gries(teststream2, k2)}")
-# ... that's why result is: {}
+    teststream2 = [1, 2, 3, 3, 3, 4, 5, 6]
+    k2 = 2
+    # n/k equals 4, and the most common element is 3 (that occured 3 times)...
+    print(f"TEST 2: Numbers that occured n/k or more times are: {misra_gries(teststream2, k2)}")
+    # ... that's why result is: {}
 
-teststream3 = [1, 11, 1, 11, 1, 11, 11]
-k3 = 3
-print(f"TEST 3: Numbers that occured n/k or more times are: {misra_gries(teststream3, k3)}")
-# result is: {11: 4, 1: 3}
+    teststream3 = [1, 11, 1, 11, 1, 11, 11]
+    k3 = 3
+    print(f"TEST 3: Numbers that occured n/k or more times are: {misra_gries(teststream3, k3)}")
+    # result is: {11: 4, 1: 3}
 
-with open("lyrics.txt", "rt", encoding="utf8") as file:
-    lyrics = []
-    for line in file:
-        listoflyrics = line.split()
-        lyrics.append(listoflyrics)
+    with open("lyrics.txt", "rt", encoding="utf8") as file:
+        lyrics = []
+        for line in file:
+            listoflyrics = line.split()
+            lyrics.append(listoflyrics)
 
-teststream4 = []
-for i in lyrics:
-    teststream4 += i
-k4 = 50
+    teststream4 = []
+    for i in lyrics:
+        teststream4 += i
+    k4 = 50
 
-print(f"TEST 4: Words that occured n/k or more times are: {misra_gries(teststream4, k4)}")
+    print(f"TEST 4: Words that occured n/k or more times are: {misra_gries(teststream4, k4)}")
