@@ -14,18 +14,18 @@ def misra_gries(stream, k):
     d1 = {}
     d2 = {}
 
-    for i in range(n):
+    for j in range(n):
         m = len(d1)  # number of individual values in the stream
 
         if m < k:
-            if stream[i] in d1:
-                d1[stream[i]] += 1
+            if stream[j] in d1:
+                d1[stream[j]] += 1
             else:
-                d1[stream[i]] = 1
+                d1[stream[j]] = 1
 
         else:
-            if stream[i] in d1:
-                d1[stream[i]] += 1
+            if stream[j] in d1:
+                d1[stream[j]] += 1
             else:
                 for key in list(d1.keys()):
                     d1[key] -= 1
@@ -35,9 +35,9 @@ def misra_gries(stream, k):
     for key in list(d1.keys()):
         d2[key] = 0
 
-    for i in range(n):
-        if stream[i] in d2:
-            d2[stream[i]] += 1
+    for j in range(n):
+        if stream[j] in d2:
+            d2[stream[j]] += 1
 
     for key in list(d2.keys()):
         if d2[key] < (n / k):
@@ -62,3 +62,16 @@ teststream3 = [1, 11, 1, 11, 1, 11, 11]
 k3 = 3
 print(f"TEST 3: Numbers that occured n/k or more times are: {misra_gries(teststream3, k3)}")
 # result is: {11: 4, 1: 3}
+
+with open("lyrics.txt", "rt", encoding="utf8") as file:
+    lyrics = []
+    for line in file:
+        listoflyrics = line.split()
+        lyrics.append(listoflyrics)
+
+teststream4 = []
+for i in lyrics:
+    teststream4 += i
+k4 = 50
+
+print(f"TEST 4: Words that occured n/k or more times are: {misra_gries(teststream4, k4)}")
